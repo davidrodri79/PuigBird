@@ -3,6 +3,7 @@ package com.mygdx.drop;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class MainMenuScreen implements Screen {
@@ -25,8 +26,9 @@ public class MainMenuScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "Welcome to Puigy Bird!!! ", 300, 300);
-        game.font.draw(game.batch, "Tap anywhere to begin!", 300, 180);
+        game.batch.draw(game.manager.get("background.png", Texture.class), 0, 0);
+        game.font25.draw(game.batch, "PUIGY BIRD ", 250, 300);
+        game.font25.draw(game.batch, "Tap anywhere to begin!", 20, 180);
         game.batch.end();
 
         if (Gdx.input.justTouched()) {

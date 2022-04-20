@@ -4,6 +4,7 @@ package com.mygdx.drop;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class GameOverScreen implements Screen {
@@ -26,9 +27,10 @@ public class GameOverScreen implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "Game Over! ", 300, 300);
-        game.font.draw(game.batch, "Final Score: " + game.lastScore, 300, 180);
-        game.font.draw(game.batch, "Top Score: " + game.topScore, 300, 120);
+        game.batch.draw(game.manager.get("background.png", Texture.class), 0, 0);
+        game.font25.draw(game.batch, "GAME OVER! ", 220, 300);
+        game.font25.draw(game.batch, "Final Score: " + game.lastScore, 180, 180);
+        game.font25.draw(game.batch, "Top Score: " + game.topScore, 200, 120);
 
         game.batch.end();
 
